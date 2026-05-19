@@ -1,3 +1,5 @@
+import tkinter as tk
+
 def get_zodiac():
         month = int(month_entry.get())
     day = int(day_entry.get())
@@ -28,3 +30,29 @@ def get_zodiac():
         result = "Pisces"
     else:
         result = "Error! Invalid Date"
+        
+        result_label.config(text="You are a " + result)
+
+root = tk.Tk()
+root.title("Zodiac Finder")
+
+# Month Input
+month_label = tk.Label(root, text="Enter Birth Month (1-12):")
+month_label.pack()
+
+month_entry = tk.Entry(root)
+month_entry.pack()
+
+day_label = tk.Label(root, text="Enter Birth Day (1-31):")
+day_label.pack()
+
+day_entry = tk.Entry(root)
+day_entry.pack()
+
+submit_button = tk.Button(root, text="Submit", command=get_zodiac)
+submit_button.pack()
+
+result_label = tk.Label(root, text="")
+result_label.pack()
+
+root.mainloop()
